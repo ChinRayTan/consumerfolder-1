@@ -31,7 +31,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center" style={{ marginBottom: "150px" }}>
         <h1>So what are you waiting for?</h1>
         <h4 className="text-secondary">Dive into our wealth of government records now.</h4>
-        <Button style={{ marginTop: "20px" }} variant="primary" size="lg">Get Started</Button>
+        <Button href="/records" style={{ marginTop: "20px" }} variant="primary" size="lg">Get Started</Button>
       </div>
     </>
   )
