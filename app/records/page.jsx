@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
+import { IoIosArrowBack } from "react-icons/io";
 import PremiumBlock from "@/components/premiumblock";
 
 export default function Records() {
@@ -31,6 +32,7 @@ export default function Records() {
                                 size="lg"
                                 type="text"
                                 onChange={(e) => setTextbox(e.target.value)}
+                                onKeyUp={(e) => (e.key === "Enter") ? window.location.href = `/records?name=${textbox}` : null}
                                 placeholder="Enter the name of the person to search..."
                             />
                             <Button href={`records?name=${textbox}`} variant="primary" size="lg">Search</Button>
@@ -110,12 +112,16 @@ function Record({ targetName }) {
     return (
         <>
             <div className="flex flex-col justify-center items-center min-h-[calc(100svh-60px)]" style={{ paddingTop: "5%", paddingBottom: "5%" }}>
-                <div className="flex flex-col justify-center items-center w-full flex-1 border border-gray-400 rounded-2xl shadow-lg bg-gray-100" style={{ maxHeight: "600px", maxWidth: "1300px" }}>
+                <div className="flex flex-col justify-center items-center w-full flex-1 border border-gray-400 rounded-2xl shadow-lg bg-gray-100 relative" style={{ maxHeight: "600px", maxWidth: "1300px" }}>
                     <h1 className="justify-self-start" style={{ marginTop: "3%" }}>Search Result</h1>
-                    <div className="flex flex-row justify-between items-center flex-1 w-full">
+                    <div className="flex flex-row justify-start items-center w-full absolute cursor-pointer" onClick={() => window.location.href = "/records"} style={{ top: "5%", left: "2%" }}>
+                        <IoIosArrowBack style={{ minWidth: "30px", minHeight: "30px", marginBottom: "5px" }}/>
+                        <h3>Back</h3>
+                    </div>
+                    <div className="flex flex-row justify-between items-center flex-1 w-full relative">
                         {actualName === null ?
                             (
-                                <div className="flex flex-col justify-center items-center h-full w-full">
+                                <div className="flex flex-col justify-center items-center h-full w-full" style={{ marginBottom: "50px" }}>
                                     <h1>No results found.</h1>
                                     <h4 className="text-secondary">That's weird. That person probably doesn't exist. We never make mistakes.</h4>
                                 </div>
@@ -142,7 +148,7 @@ function Record({ targetName }) {
                                     <div className="flex flex-col justify-center items-start h-full w-full">
                                         <h2>{names[actualName].Name}</h2>
                                         <br />
-                                        <div className={names[actualName].NRIC === "./flag.png" && "blur-lg"}>
+                                        <div className={names[actualName].NRIC === "./flag.png" ? "blur-lg" : ""}>
                                             {
                                                 names[actualName].NRIC === "./flag.png" ? <img src={"flag.png"} style={{ width: "75%" }} /> : <h2>{names[actualName].NRIC}</h2>
                                             }
@@ -157,7 +163,7 @@ function Record({ targetName }) {
                                         </div>
                                     </div>
                                 </div>
-                                <PremiumBlock />
+                                <PremiumBlock visibility={names[actualName].NRIC === "./flag.png"}/>
                             </>
                         }
                     </div>
