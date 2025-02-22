@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <Countdown />
       </div>
-      <div className="flex flex-row items-center justify-between" style={{ paddingLeft: "10%", paddingRight: "10%", marginBottom:"150px" }}>
+      <div className="flex flex-row items-center justify-between" style={{ paddingLeft: "10%", paddingRight: "10%", marginBottom: "150px" }}>
         <img className="w-md" src="Designer.jpeg"/>
         <div className="flex flex-col">
           <h1 className="text-right">Data breaches?</h1>
