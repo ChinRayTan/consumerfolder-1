@@ -8,7 +8,6 @@ import Spinner from 'react-bootstrap/Spinner';
 import { IoIosArrowBack, IoIosInformationCircle } from "react-icons/io";
 import { MdError } from "react-icons/md";
 import PremiumBlock from "@/components/premiumblock";
-import Flag from "@/public/flag.png"
 
 export default function Records() {
     const [textbox, setTextbox] = useState(null);
@@ -72,7 +71,7 @@ function Record({ targetName }) {
         "Chin Ray": {
             "aka": ["chin", "ray", "tan"],
             "Name": "Chin Ray",
-            "NRIC": "./flag.png",
+            "NRIC": "./favicon.png",
             "School": "Ngee Ann Polytechnic",
             "Course": "Cybersecurity and Digital Forensics",
             "Year": "Y1S2",
@@ -151,52 +150,59 @@ function Record({ targetName }) {
                         </div>
                     }
                     <div className="flex flex-row justify-between items-center flex-1 w-full relative">
-                        {actualName === null ?
-                            (
-                                <div className="flex flex-col justify-center items-center h-full w-full" style={{ marginBottom: "50px" }}>
-                                    <h1>No results found.</h1>
-                                    <h4 className="text-secondary">That's weird. That person probably doesn't exist. We never make mistakes.</h4>
-                                </div>
-                            )
-                            :
-                            <>
-                                <div className="flex flex-col justify-center items-center h-full w-2/3">
-                                    <img src={names[actualName].picture} className="w-md h-md" style={{ maxWidth: "200px" }} />
-                                </div>
-                                <div className="flex flex-row items-start w-full h-full">
-                                    <div className="flex flex-col justify-center items-start h-full w-1/4">
-                                        <h2>Name:</h2>
-                                        <br />
-                                        <h2>NRIC:</h2>
-                                        <br />
-                                        <h2>School:</h2>
-                                        <br />
-                                        <h2>Course:</h2>
-                                        <br />
-                                        <h2>Year:</h2>
-                                        <br />
-                                        <h2>GPA:</h2>
+                        {targetName.includes("flag") ? (
+                            <div className="flex flex-col justify-center items-center h-full w-full" style={{ marginBottom: "50px" }}>
+                                <h1>Nuh uh, that won't work.</h1>
+                                <h4 className="text-secondary">ConsumerFolder's top notch and bulletproof cybersecurity practices protect against that.</h4>
+                                <h4 className="text-secondary">(You're overthinking it, my guy.)</h4>
+                            </div>
+                        ) :
+                            (actualName === null) ?
+                                (
+                                    <div className="flex flex-col justify-center items-center h-full w-full" style={{ marginBottom: "50px" }}>
+                                        <h1>No results found.</h1>
+                                        <h4 className="text-secondary">That's weird. That person probably doesn't exist. We never make mistakes.</h4>
                                     </div>
-                                    <div className="flex flex-col justify-center items-start h-full w-full">
-                                        <h2>{names[actualName].Name}</h2>
-                                        <br />
-                                        <div className={names[actualName].NRIC === "./flag.png" ? "blur-lg" : ""}>
-                                            {
-                                                names[actualName].NRIC === "./flag.png" ? <div style={{ backgroundImage: `url(flag.png)`, height: "45px",backgroundSize: "cover", backgroundRepeat: "no-repeat" }} /> : <h2>{names[actualName].NRIC}</h2>
-                                            }
+                                )
+                                :
+                                <>
+                                    <div className="flex flex-col justify-center items-center h-full w-2/3">
+                                        <img src={names[actualName].picture} className="w-md h-md" style={{ maxWidth: "200px" }} />
+                                    </div>
+                                    <div className="flex flex-row items-start w-full h-full">
+                                        <div className="flex flex-col justify-center items-start h-full w-1/4">
+                                            <h2>Name:</h2>
                                             <br />
-                                            <h2>{names[actualName].School}</h2>
+                                            <h2>NRIC:</h2>
                                             <br />
-                                            <h2>{names[actualName].Course}</h2>
+                                            <h2>School:</h2>
                                             <br />
-                                            <h2>{names[actualName].Year}</h2>
+                                            <h2>Course:</h2>
                                             <br />
-                                            <h2>{names[actualName].GPA}</h2>
+                                            <h2>Year:</h2>
+                                            <br />
+                                            <h2>GPA:</h2>
+                                        </div>
+                                        <div className="flex flex-col justify-center items-start h-full w-full">
+                                            <h2>{names[actualName].Name}</h2>
+                                            <br />
+                                            <div className={names[actualName].NRIC === "./favicon.png" ? "blur-lg" : ""}>
+                                                {
+                                                    names[actualName].NRIC === "./favicon.png" ? <div style={{ backgroundImage: `url(favicon.png)`, height: "45px", backgroundSize: "cover", backgroundRepeat: "no-repeat" }} /> : <h2>{names[actualName].NRIC}</h2>
+                                                }
+                                                <br />
+                                                <h2>{names[actualName].School}</h2>
+                                                <br />
+                                                <h2>{names[actualName].Course}</h2>
+                                                <br />
+                                                <h2>{names[actualName].Year}</h2>
+                                                <br />
+                                                <h2>{names[actualName].GPA}</h2>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <PremiumBlock visibility={names[actualName].NRIC === "./flag.png"} />
-                            </>
+                                    <PremiumBlock visibility={names[actualName].NRIC === "./favicon.png"} />
+                                </>
                         }
                     </div>
                 </div>
