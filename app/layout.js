@@ -21,6 +21,7 @@ const geistMono = Geist_Mono({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <title>ConsumerFolder</title>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
           <Container>
