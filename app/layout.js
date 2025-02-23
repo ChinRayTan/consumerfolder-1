@@ -22,15 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+        <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
           <Container>
             <Navbar.Brand href="/">ConsumerFolder</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ms-auto">
-                <Nav.Link href="/records">Search Records</Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
+            <Nav className="ms-auto">
+              <Nav.Link href="/records">Search Records</Nav.Link>
+            </Nav>
           </Container>
         </Navbar>
         {children}

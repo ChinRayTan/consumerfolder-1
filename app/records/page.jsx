@@ -1,10 +1,12 @@
 "use client"
 
+import Alert from 'react-bootstrap/Alert';
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosInformationCircle } from "react-icons/io";
+import { MdError } from "react-icons/md";
 import PremiumBlock from "@/components/premiumblock";
 
 export default function Records() {
@@ -39,6 +41,21 @@ export default function Records() {
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center" style={{ marginBottom: "150px" }}>
+                        <Alert variant="info" className="min-w-[30%]">
+                            <Alert.Heading>
+                                <div className="flex flex-row items-center w-full">
+                                    <IoIosInformationCircle style={{ width: "30px", height: "30px", marginRight: "1%" }} />
+                                    Don't know where to start? Some examples:
+                                </div>
+                            </Alert.Heading>
+                            <hr />
+                            <ul>
+                                <li>1. Damian</li>
+                                <li>2. Daksh</li>
+                                <li>3. Ravin</li>
+                                <li>4. Chin Ray</li>
+                            </ul>
+                        </Alert>
                         <img src="Search.jpeg" className="w-1/5" />
                     </div>
                 </>
@@ -112,12 +129,26 @@ function Record({ targetName }) {
     return (
         <>
             <div className="flex flex-col justify-center items-center min-h-[calc(100svh-60px)]" style={{ paddingTop: "5%", paddingBottom: "5%" }}>
-                <div className="flex flex-col justify-center items-center w-full flex-1 border border-gray-400 rounded-2xl shadow-lg bg-gray-100 relative" style={{ maxHeight: "600px", maxWidth: "1300px" }}>
-                    <h1 className="justify-self-start" style={{ marginTop: "3%" }}>Search Result</h1>
+                <div className="flex flex-col justify-center items-center w-full flex-1 border border-gray-400 rounded-2xl shadow-lg bg-gray-100 relative" style={{ maxHeight: "750px", maxWidth: "1300px" }}>
+                    <h1 className="justify-self-start" style={{ marginTop: "3%", marginBottom: "3%" }}>Search Result</h1>
                     <div className="flex flex-row justify-start items-center w-full absolute cursor-pointer" onClick={() => window.location.href = "/records"} style={{ top: "5%", left: "2%" }}>
-                        <IoIosArrowBack style={{ minWidth: "30px", minHeight: "30px", marginBottom: "5px" }}/>
+                        <IoIosArrowBack style={{ minWidth: "30px", minHeight: "30px", marginBottom: "5px" }} />
                         <h3>Back</h3>
                     </div>
+                    {actualName === "Daksh" &&
+                        <div>
+                            <Alert variant="danger" style={{ marginLeft: "10%", marginRight: "10%" }}>
+                                <Alert.Heading>
+                                    <div className="flex flex-row items-center w-full">
+                                        <MdError style={{ width: "30px", height: "30px", marginRight: "1%", marginTop: "3px" }} />
+                                        Warning
+                                    </div>
+                                </Alert.Heading>
+                                <hr />
+                                This person is wanted by ConsumerFolder and the Internal Security Department (ISD) for being a nuisance, attempting to breach and challenge our bulletproof database. If you have any information on his whereabouts, please contact the ISD immediately.
+                            </Alert>
+                        </div>
+                    }
                     <div className="flex flex-row justify-between items-center flex-1 w-full relative">
                         {actualName === null ?
                             (
@@ -163,7 +194,7 @@ function Record({ targetName }) {
                                         </div>
                                     </div>
                                 </div>
-                                <PremiumBlock visibility={names[actualName].NRIC === "./flag.png"}/>
+                                <PremiumBlock visibility={names[actualName].NRIC === "./flag.png"} />
                             </>
                         }
                     </div>
