@@ -10,6 +10,7 @@ export default function Home() {
         <img style={{ margin: "50px" }} src="professional-man-searching-laptop-data.jpg"/>
         <h1 style={{ fontSize: "2.2rem" }}>Entrusted with the personal data of</h1>
         <h1 className="text-2xl">over <strong>6,036,900</strong> Singaporeans.</h1>
+        <Button href="/records" style={{ marginTop: "20px" }} variant="primary" size="lg">Get Started</Button>
       </div>
       <div className="flex flex-row justify-between" style={{ paddingLeft: "10%", paddingRight: "10%" }}>
         <div className="flex flex-col min-h-100">
