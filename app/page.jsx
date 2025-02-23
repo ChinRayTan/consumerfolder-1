@@ -6,7 +6,7 @@ import Countdown from "@/components/countdown";
 export default function Home() {
   return (
     <>
-      <div className={`flex flex-col items-center min-h-svh`}>
+      <div className={`flex flex-col items-center min-h-svh`} style={{ paddingBottom: "150px" }}>
         <img style={{ margin: "50px" }} src="professional-man-searching-laptop-data.jpg"/>
         <h1 style={{ fontSize: "2.2rem" }}>Entrusted with the personal data of</h1>
         <h1 className="text-2xl">over <strong>6,036,900</strong> Singaporeans.</h1>
