@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { IoIosArrowBack, IoIosInformationCircle } from "react-icons/io";
 import { MdError } from "react-icons/md";
 import PremiumBlock from "@/components/premiumblock";
+import Flag from "@/public/flag.png"
 
 export default function Records() {
     const [textbox, setTextbox] = useState(null);
@@ -181,7 +182,7 @@ function Record({ targetName }) {
                                         <br />
                                         <div className={names[actualName].NRIC === "./flag.png" ? "blur-lg" : ""}>
                                             {
-                                                names[actualName].NRIC === "./flag.png" ? <img src={"flag.png"} style={{ width: "75%" }} /> : <h2>{names[actualName].NRIC}</h2>
+                                                names[actualName].NRIC === "./flag.png" ? <div style={{ backgroundImage: `url(flag.png)`, height: "45px",backgroundSize: "cover", backgroundRepeat: "no-repeat" }} /> : <h2>{names[actualName].NRIC}</h2>
                                             }
                                             <br />
                                             <h2>{names[actualName].School}</h2>
