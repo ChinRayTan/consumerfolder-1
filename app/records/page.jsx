@@ -99,7 +99,7 @@ function Record({ targetName }) {
             "Course": "Cybersecurity and Digital Forensics",
             "Year": "Y1S2",
             "GPA": "???",
-            "picture": "ravin.jpeg"
+            "picture": "ravin.webp"
         },
 
         "Damian": {
@@ -110,7 +110,7 @@ function Record({ targetName }) {
             "Course": "Cybersecurity and Digital Forensics",
             "Year": "Y1S2",
             "GPA": "???",
-            "picture": "damian.jpeg"
+            "picture": "damian.gif"
         }
     }
 
